@@ -1,7 +1,6 @@
 package batch
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -15,6 +14,12 @@ func getOne(id int64) user {
 }
 
 func getBatch(n int64, pool int64) (res []user) {
-	fmt.Println("hey")
-	return nil
+	var result []user
+	for i := 0; i < int(n); i++ {
+		go func() {
+			u := getOne(i)
+			result = append(res, u)
+		}()
+	}
+	return res
 }
