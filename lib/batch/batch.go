@@ -15,6 +15,6 @@ func getOne(id int64) user {
 }
 
 func getBatch(n int64, pool int64) (res []user) {
-	return nil
 	fmt.Println("hey")
+	return nil
 }
