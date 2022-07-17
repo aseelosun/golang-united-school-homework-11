@@ -18,8 +18,8 @@ func getBatch(n int64, pool int64) (res []user) {
 	for i := 0; i < int(n); i++ {
 		go func() {
 			u := getOne(int64(i))
-			result = append(res, u)
+			result = append(result, u)
 		}()
 	}
-	return res
+	return result
 }
